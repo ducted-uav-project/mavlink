@@ -7750,5 +7750,20 @@
       <field type="int16_t" name="temperature" units="cdegC">Temperature</field>
       <field type="uint16_t" name="humidity" units="c%">Humidity</field>
     </message>
+
+    <message id="512" name="MOVING_LANDING_TARGET">
+          <description>
+            Position and velocity of a moving landing target in the local NED frame.
+          </description>
+          <field type="uint64_t" name="time_usec" units="us">Timestamp since system boot or UNIX epoch. </field>
+          <field type="float" name="x" units="m">Target X position in local NED.</field>
+          <field type="float" name="y" units="m">Target Y position in local NED.</field>
+          <field type="float" name="z" units="m">Target Z position in local NED.</field>
+          <field type="float" name="vx" units="m/s">Target X velocity in local NED.</field>
+          <field type="float" name="vy" units="m/s">Target Y velocity in local NED.</field>
+          <field type="float" name="vz" units="m/s">Target Z velocity in local NED.</field>
+          <field type="uint8_t" name="position_valid">Whether position is valid.</field>
+          <field type="uint8_t" name="velocity_valid">Whether velocity is valid.</field>
+        </message>
   </messages>
 </mavlink>
