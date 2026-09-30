@@ -7753,17 +7753,33 @@
 
     <message id="512" name="MOVING_LANDING_TARGET">
           <description>
-            Position and velocity of a moving landing target in the local NED frame.
+            Full state of a moving landing target in the local NED frame.
+            Target attitude uses the FRD body frame and the convention
+            R_body_to_ned = Rz(yaw) * Ry(pitch) * Rx(roll).
+            Body angular rates p/q/r are expressed in the target FRD body frame.
           </description>
-          <field type="uint64_t" name="time_usec" units="us">Timestamp since system boot or UNIX epoch. </field>
+          <field type="uint64_t" name="time_usec" units="us">Timestamp since system boot or UNIX epoch.</field>
+
           <field type="float" name="x" units="m">Target X position in local NED.</field>
           <field type="float" name="y" units="m">Target Y position in local NED.</field>
           <field type="float" name="z" units="m">Target Z position in local NED.</field>
+
           <field type="float" name="vx" units="m/s">Target X velocity in local NED.</field>
           <field type="float" name="vy" units="m/s">Target Y velocity in local NED.</field>
           <field type="float" name="vz" units="m/s">Target Z velocity in local NED.</field>
+
+          <field type="float" name="roll" units="rad">Target roll angle.</field>
+          <field type="float" name="pitch" units="rad">Target pitch angle.</field>
+          <field type="float" name="yaw" units="rad">Target yaw angle.</field>
+
+          <field type="float" name="p" units="rad/s">Target body angular rate about FRD +X.</field>
+          <field type="float" name="q" units="rad/s">Target body angular rate about FRD +Y.</field>
+          <field type="float" name="r" units="rad/s">Target body angular rate about FRD +Z.</field>
+
           <field type="uint8_t" name="position_valid">Whether position is valid.</field>
           <field type="uint8_t" name="velocity_valid">Whether velocity is valid.</field>
+          <field type="uint8_t" name="attitude_valid">Whether roll, pitch and yaw are valid.</field>
+          <field type="uint8_t" name="rate_valid">Whether p, q and r are valid.</field>
         </message>
   </messages>
 </mavlink>
